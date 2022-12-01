@@ -4,9 +4,10 @@ import numpy as np
 
 
 colour = None
-
+GRAB = True
 
 # ////////////////////////////////////////////////////////////////// GRAB IMAGE FROM DESKTOP SCREEN //////////////////////////////////////////////////////////////////
+
 
 def grab_image():
     img = ImageGrab.grab(
@@ -57,7 +58,8 @@ def show_image(img, colour):
 # ////////////////////////////////////////////////////////////////// RUN (DEBUG ONLY) //////////////////////////////////////////////////////////////////
 
 if __name__ == '__main__':
-    img = grab_image()
+    if GRAB:
+        img = grab_image()
     colour = detect_colour(img)
     img_bw = c2bw(img)
     show_image(img_bw, colour)
